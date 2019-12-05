@@ -1,0 +1,17 @@
+﻿
+
+.signUpGroup {
+    margin: 0 auto;
+    width: 360px;
+    height:400px;
+}
+
+.inputError{
+    border-color:red;
+}
+
+.head{
+    margin:0 0 15px 0;
+}
+
+.btnDown{ margin:0 auto; width: 360px; overflow: auto}

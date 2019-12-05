@@ -1,0 +1,137 @@
+﻿body {
+    background-image: url(img/background.a568162c.svg);
+    position:relative;
+}
+
+.top{
+    margin-bottom: 0;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    text-align: center;
+    overflow: auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 33px;
+    font-weight: 600;
+}
+
+.title_a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+.title_a:hover{
+    text-decoration:none;
+    color:black;
+}
+.logo {
+    height: 44px;
+    transform: rotate(-25deg);
+    margin-right:14px;
+}
+
+.supTitle {
+    background-color: red;
+    color: white;
+    transform: translateX(50%);
+    transform-origin: 100%;
+}
+
+.desc {
+    color: gray;
+    font-size: 14px;
+}
+
+.tabgroup {
+    height: 59px;
+    margin: 20px auto;
+    width: 362px;
+    
+}
+
+.tab1 {
+    float: left;
+    margin-right: 15px;
+    margin-left: 55px;
+    padding: 12px 14px;
+    color: #1890FF;
+    width: 128px;
+    cursor: pointer;
+}
+
+.tab2 {
+    float: left;
+    padding: 12px 14px;
+    width: 113px;
+    cursor: pointer;
+}
+
+.tab1:hover{
+    color: #1890FF;
+        
+}
+
+.tab2:hover{
+    color: #1890FF;
+}
+
+#selected {
+    height: 2px;
+    width: 110px;
+    background-color: #1890FF;
+    clear: both;
+    margin-left: 60px;
+    position: relative;
+}
+
+.logingroup{
+    position: relative;
+    height: 125px;
+    margin: 0 auto;
+    margin-top:15px;
+    width: 340px;
+}
+
+#accountLogin {
+    width: 340px;
+    position: absolute;
+    opacity: 1;
+    top: 5px;
+    left: -1px;
+}
+
+#teleNumberLogin {
+    width: 340px;
+    position: absolute;
+    opacity: 0;
+    display: none;
+}
+
+#getcode{
+    float:left;
+    width: 200px;
+}
+
+#btnGetCode{
+    float:right;
+}
+
+.btnlogin {
+    margin:0 auto;
+    width:340px;
+}
+.btnSignUp{
+    margin:0 auto;
+    width: 340px;
+}
+
+#btnSignUp {
+    float: right;
+}
+
+.btn-link:hover{
+    text-decoration:none;
+}
