@@ -1,0 +1,14 @@
+﻿.forgotGroup{
+    margin:0 auto;
+    width: 420px;
+}
+.btnGetCode{
+    width:200px;
+    float: left;
+}
+
+#txtPwd::-moz-placeholder{
+    color: #808080;
+    font-size: 5px;
+
+}

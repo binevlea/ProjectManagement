@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="css/signUp.css"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="Scripts/jquery-3.4.1.js"></script>
-    
     <script src="Scripts/bootstrap.min.js"></script>
 </head>
 <body>
@@ -28,16 +27,15 @@
     <!--输入事项-->
     <form id="form1" runat="server">
         <div class="signUpGroup">
-            <h5 class="mb-3">
+            <h5 class="mb-4">
                 <span>注册</span>
             </h5>
             <!--输入邮箱-->
             <div class="input-group-prepend">
-                <span class="input-group-text">邮&nbsp;&nbsp;箱</span>
-                <asp:TextBox class="form-control" placeholder ="mailbox" runat="server"
+                <asp:TextBox class="form-control" placeholder ="邮箱号" runat="server"
                     id="txtEmail" name="email"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="请输入邮箱号"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="txtEmail" SetFocusOnError="False"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="邮箱格式不正确"
@@ -46,32 +44,30 @@
             </div>
             <!--输入姓名-->
             <div class="input-group-prepend">
-                <span class="input-group-text">姓&nbsp;名</span>
-                <asp:TextBox class="form-control" placeholder ="name" runat="server"
+                <asp:TextBox class="form-control" placeholder ="姓名" runat="server"
                     id="txtName" name="email"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                  <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="请输入姓名"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="txtName" SetFocusOnError="False"></asp:RequiredFieldValidator>
             </div>
             <!--输入密码-->
             <div class="input-group-prepend ">
-                <span class="input-group-text">密&nbsp;&nbsp;码</span>
-                <asp:TextBox type="password" class="form-control" placeholder="password" 
+                <asp:TextBox type="password" class="form-control" placeholder="密码" 
                     id="txtPwd" name="password" runat="server"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <asp:RequiredFieldValidator ID="rfvPwd" runat="server" ErrorMessage="请输入至少6位密码"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="txtPwd" SetFocusOnError="False"></asp:RequiredFieldValidator>
             </div>
             
             <!--确认密码-->
-            <div class="input-group-prepend">
-                <span class="input-group-text">确认密码</span>
-                <asp:TextBox type="password" class="form-control" placeholder="ConfirmPassword" 
+            <div>
+                <%--<span class="input-group-text">确认密码</span>--%>
+                <asp:TextBox type="password" class="form-control" placeholder="确认密码" 
                     id="txtPwdConfirm" name="password" runat="server"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <asp:CompareValidator ID="cvPwd" runat="server" ErrorMessage="两次密码输入不匹配"
                     ForeColor="Red" Display="Dynamic" ControlToCompare="txtPwdConfirm" ControlToValidate="txtPwd"> </asp:CompareValidator>
             </div>
@@ -85,17 +81,17 @@
                 </div>
                 <asp:TextBox class="form-control" placeholder="11位手机号" id="txtTeleNumber" name="teleNumber" runat="server"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                  <asp:RequiredFieldValidator ID="rfvTeleNumbers" runat="server" ErrorMessage="请输入手机号码"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="txtTeleNumber" SetFocusOnError="False"></asp:RequiredFieldValidator>
             </div>
             <!--获取验证码-->
             <div class="input-group-prepend" id="getcode">
-                <span class="input-group-text">验证码</span>
-                <asp:TextBox type="text" class="form-control" placeholder="code" id="txtCode" name="password" runat="server"></asp:TextBox>
+                <%--<span class="input-group-text">验证码</span>--%>
+                <asp:TextBox type="text" class="form-control" placeholder="验证码" id="txtCode" name="password" runat="server"></asp:TextBox>
             </div>
-            <button type="button" class="btn btn-light" id="btnGetCode">获取验证码</button>
-            <div class="mb-3" style="clear:both">
+            <button type="button" class="btn btn-light" id="btnGetCode" style="width: 150px">获取验证码</button>
+            <div class="mb-4" style="clear:both">
                  <asp:RequiredFieldValidator ID="rfvCode" runat="server" ErrorMessage="请输入验证码"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="txtCode" SetFocusOnError="False"></asp:RequiredFieldValidator>
             </div>
@@ -106,20 +102,47 @@
             </div>
             <!--已有账号登录按钮-->
             <asp:Button ID="btnlogin" runat="server" type="submit" 
-            class="btn btn-link  btn-sm"  Text="使用已有账号登录" 
-            OnClick="btnlogin_Click" style=" float:right;" CausesValidation="False"/>
+                class="btn btn-link  btn-sm"  Text="使用已有账号登录" 
+                OnClick="btnlogin_Click" style=" float:right;" CausesValidation="False"/>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <ajaxToolkit:PasswordStrength ID="PasswordStrength1" DisplayPosition="RightSide" MinimumNumericCharacters="6" runat="server" TargetControlID="txtPwd"  TextStrengthDescriptions="弱; 中; 强" PrefixText="强度：" />
+            
         </div>
         
     </form>
     <script>
-        
+        var code;
         $(document).ready(function () {
             $("#btnGetCode").click(function () {
-                var code = parseInt(Math.random() * (9999 - 1000 + 1) + 1000);
+                var count = 60;
+                var phone = $("#txtTeleNumber").val();
+                var reg_phone = /1\d{10}/
+                if (!reg_phone.test(phone)) {
+                    alert("请输入正确手机号码");
+                    return false;
+                }
+                code = parseInt(Math.random() * (9999 - 1000 + 1) + 1000);
                 alert("验证码获取成功，您的验证码为：" + code);
+                
+                $("#btnGetCode").attr("disabled", true);
+                $("#btnGetCode").html(count + "s");
+                var timer = setInterval(function () {
+                    count--;
+                    $("#btnGetCode").html(count + "s")
+                    if (count == 0) {
+                        clearInterval(timer);
+                        $("#btnGetCode").attr("disabled", false);
+                        $("#btnGetCode").html("获取验证码");
+                    }
+                },1000)
             })
+            $("#btnSignUp").click(function () {
+                 var inputCode = $("#txtCode").val();
+                 if (code != inputCode) {
+                     alert("验证码错误！");
+                     return false;
+                 }
+             })
         });
     </script>
 </body>

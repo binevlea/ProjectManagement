@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="proMana">
+  <DataContextMoniker Name="/proManaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="78d374a4-c7a1-44ab-8ba3-6c6c7cb7c894" absoluteBounds="4.375, 2.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/proManaDataContext/member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67b293a4-50ef-4511-b60a-75d3ba8a5fcc" absoluteBounds="4.39, 3.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
